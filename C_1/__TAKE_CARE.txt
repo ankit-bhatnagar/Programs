@@ -1,0 +1,7 @@
+1- Initialize variables correctly and also take the base cases. Like what if passed boundary cases.
+
+2- free memeory, inlcude appropriate files
+
+3- always mistakes in initialization, segmentation fault when run for first time -> may be not initialized, too many compilation errors
+
+4- 
