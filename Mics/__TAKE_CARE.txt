@@ -1,0 +1,44 @@
+TAKE CARE POINTS
+================
+
+1- Initialize variables correctly and also take the base cases. Like what if passed boundary cases.
+
+2- free memeory, inlcude appropriate files
+
+3- always mistakes in initialization, segmentation fault when run for first time -> may be not initialized, too many compilation errors
+
+4- 
+
+====================================================================================================================================================================
+
+RULE TO REMEMBER
+================
+
+Static C:
+--------
+
+- static global variables -> not accessible outside of source file
+- static functions -> not accessible outside source file
+- static local variabes -> like global variables (global scope) with local visibility
+
+Static in C++
+--------------
+
+- static class variables -> are class variables, 
+- Classes can also have static member functions.
+
+Important in C++
+----------------
+
+Default constructor	       C::C();
+Destructor	               C::~C();
+Copy constructor	       C::C (const C&);
+Copy assignment	           C& operator= (const C&);
+Move constructor	       C::C (C&&);
+Move assignment	           sC& operator= (C&&);
+
+
+-> Default copy constructor is present in C++ (which just copy all the members, recall details) ==> shallow copy (pointer are same)
+
+-> copy assignment = overload = operator for to perform as copy constructor  (a = b)
+

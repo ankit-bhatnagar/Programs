@@ -101,12 +101,13 @@ static list_node * append_to_list_with_next(list_node ** head, int data, list_no
 	return new_node;
 }
 
-/* returns 0 -> no cycle 1 -> cycle */
+/* returns 0 -> no cycle positive integer -> cycle exist and its length */
 static int detect_and_display_cycle(list_node * head)
 {
 	list_node * slow_node = head;
 	list_node * fast_node = head;
 	int ret_code = 0;
+	int cycle_length = 0;
 
 	if (head == 0)
 		return ret_code;
@@ -114,6 +115,8 @@ static int detect_and_display_cycle(list_node * head)
 	while (fast_node != 0)
 	{
 		fast_node = fast_node->next;
+		if (!fast_node)
+			break;
 		fast_node = fast_node->next;
 		slow_node = slow_node->next;
 		if (fast_node == slow_node)
@@ -123,7 +126,58 @@ static int detect_and_display_cycle(list_node * head)
 		}
 	}
 
+	if (ret_code == 1)
+	{
+		/* Find the length and return it */
+		cycle_length++;
+		fast_node = fast_node->next;
+		while (fast_node != slow_node)
+		{
+			cycle_length++;
+			fast_node = fast_node->next;
+		}
+		ret_code = cycle_length;
+	}
+
 	return ret_code;
+}
+
+/* reverse singly link list */
+static void reverse_list(list_node ** list)
+{
+	list_node * first = NULL;
+	list_node * second = *list;
+	list_node * third = second->next;
+
+	while (third)
+	{
+		second->next = first;
+		first = second;
+		second = third;
+		third = third->next;
+	}
+
+    /* this is fucking badass -  what the heck - why it didn't worked */
+	second->next = first;
+
+	*list = second;
+}
+
+static int print_middle_of_list(list_node * list_head)
+{
+	list_node * slow = list_head;
+	list_node * fast = list_head;
+
+	while (fast != NULL)
+	{
+		fast = fast->next;
+		if (!fast)
+			break;
+		fast = fast->next;
+		slow = slow->next;
+	}
+
+	return slow->data;
 }
 
 int main(int argc, char * argv[])
@@ -142,6 +196,7 @@ int main(int argc, char * argv[])
 	append_to_list(&high_head, 10);
 	append_to_list(&high_head, 11);
 	append_to_list(&high_head, 12);
+	append_to_list(&high_head, 13);
 	display_list(high_head);
 	display_n_from_last(high_head, 4);
 
@@ -162,4 +217,9 @@ int main(int argc, char * argv[])
 
 	printf("Cycle = %d\n", detect_and_display_cycle(high_head_cycle));
 	printf("Cycle = %d\n", detect_and_display_cycle(high_head));
+
+    printf("Middle = %d\n", print_middle_of_list(high_head));
+
+    reverse_list(&high_head);	
+	display_list(high_head);
 }
