@@ -31,7 +31,6 @@ int Push(stack_t * myStack, int data) {
 int Pop(stack_t * myStack) {
 	if (myStack->total_elements == 0) {
 		/* stack overflow */
-		printf("Stack overflow\n");
 		return -1;
 	}
 
@@ -43,7 +42,22 @@ int Pop(stack_t * myStack) {
 	return data;
 }
 
-/* 
+int IsEmptyStack(stack_t * myStack) {
+	if (myStack->total_elements == 0)
+		return 1;
+	else
+		return 0;
+}
+
+void PopAndDisplayAll(stack_t * myStack) {
+	int data;
+
+	while (!IsEmptyStack(myStack)) {
+		printf("%d\n", Pop(myStack));
+	}
+}
+
+/*
  * Accepts a postfix expression and evaluates it - currently no parenthesis and only +, -, *, /
  * Error -> returns -1
  */
@@ -78,11 +92,17 @@ int main(int argc, char ** argv) {
 	Push(&stackOne, 2);
 	Push(&stackOne, 3);
 	Push(&stackOne, 4);
+	/*printf("%d\n", Pop(&stackOne));
 	printf("%d\n", Pop(&stackOne));
 	printf("%d\n", Pop(&stackOne));
-	printf("%d\n", Pop(&stackOne));
-	printf("%d\n", Pop(&stackOne));
+	printf("%d\n", Pop(&stackOne));*/
 	//printf("%d\n", Pop(&stackOne));
+	PopAndDisplayAll(&stackOne);
 
 	printf("Expression = %d\n", PostfixEvaluation("234*+"));
+
+	Push(&stackOne, 1);
+	Push(&stackOne, 2);
+	Push(&stackOne, 3);
+	Push(&stackOne, 4);
 }
