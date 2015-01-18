@@ -2,10 +2,81 @@
 
 #include <iostream>
 #include <cstdlib>
+
 #include "BinaryTree.h"
+#include "myqueue.h"
 
 using namespace std;
 
+/* Binary Tree */
+clBinaryTree::clBinaryTree() {
+	headPtr = NULL;
+}
+
+treeNode_t * clBinaryTree::createNode(int data) {
+	treeNode_t * temp = (treeNode_t *)malloc(sizeof(treeNode_t));
+	temp->data = data;
+	temp->left = NULL;
+	temp->right = NULL;
+}
+
+void clBinaryTree::InsertElement(int data) {
+	MyQueue elemQueue(100);
+	treeNode_t * temp;
+
+	if (headPtr == NULL) {
+		headPtr = createNode(data);
+		return;
+	}
+
+	elemQueue.enqueue(headPtr);
+	while (!elemQueue.isQueueEmpty()) {
+		temp = (treeNode_t *)elemQueue.dequeue();
+		if (temp->left == NULL) {
+			temp->left = createNode(data);
+			break;
+		} else if (temp->right == NULL) {
+			temp->right = createNode(data);
+			break;
+		}
+
+		if (temp->left) {
+			elemQueue.enqueue(temp->left);
+		}
+		if (temp->right) {
+			elemQueue.enqueue(temp->right);
+		}
+	}
+
+	elemQueue.deleteQueue();
+}
+
+void clBinaryTree::TraverseLevelOrder() {
+	MyQueue elemQueue(100);
+	treeNode_t * temp;
+
+	if (headPtr == NULL)
+		return;
+
+	cout << "Level Order Traversal" << endl;
+
+	elemQueue.enqueue(headPtr);
+	while(!elemQueue.isQueueEmpty()) {
+		temp = (treeNode_t *)elemQueue.dequeue();
+		cout << temp->data << endl;
+
+		if (temp->left) {
+			elemQueue.enqueue(temp->left);
+		}
+		if (temp->right) {
+			elemQueue.enqueue(temp->right);
+		}
+	}
+
+	elemQueue.deleteQueue();
+}
+
+/* Binary Search Tree */
 clBinarySearchTree::clBinarySearchTree() {
 	clBinarySearchTree::headPtr = NULL;
 }
@@ -142,6 +213,8 @@ void clBinarySearchTree::TraversePostOrder() {
 
 int main() {
 	clBinarySearchTree aTree;
+	clBinaryTree anotherTree;
+
 	aTree.InsertElement(10);
 	aTree.InsertElement(6);
 	aTree.InsertElement(1);
@@ -156,4 +229,15 @@ int main() {
 	//aTree.TraversePostOrder();
 	aTree.DeleteElement(10);
 	aTree.TraverseInOrder();
+
+	anotherTree.InsertElement(1);
+	anotherTree.InsertElement(12);
+	anotherTree.InsertElement(14);
+	anotherTree.InsertElement(2);
+	anotherTree.InsertElement(90);
+	anotherTree.InsertElement(76);
+	anotherTree.InsertElement(4);
+	anotherTree.InsertElement(0);
+	anotherTree.InsertElement(8);
+	anotherTree.TraverseLevelOrder();
 }

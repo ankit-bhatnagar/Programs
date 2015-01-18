@@ -7,6 +7,16 @@ typedef struct _treeNode_t {
 	struct _treeNode_t * right;
 } treeNode_t;
 
+class clBinaryTree {
+private:
+	treeNode_t * headPtr;
+	treeNode_t * createNode(int data);
+public:
+	clBinaryTree();
+	void InsertElement(int data);
+	void TraverseLevelOrder();
+};
+
 class clBinarySearchTree {
 private:
 	treeNode_t * headPtr;
