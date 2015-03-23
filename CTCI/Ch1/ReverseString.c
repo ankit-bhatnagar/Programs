@@ -5,6 +5,7 @@
 void ReverseString(char * inputString) {
 	char * end = inputString + (strlen(inputString) - 1);
 	char temp;
+	/* comparing address (pointer) so can do this */
 	while (inputString < end) {
 		temp = *(inputString);
 		*(inputString) = *(end);

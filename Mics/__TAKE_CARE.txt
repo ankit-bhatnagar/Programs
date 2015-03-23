@@ -35,12 +35,12 @@ Destructor	               C::~C();
 Copy constructor	       C::C (const C&);
 Copy assignment	           C& operator= (const C&);
 Move constructor	       C::C (C&&);
-Move assignment	           sC& operator= (C&&);
+Move assignment	           C& operator= (C&&);
 
 
 -> Default copy constructor is present in C++ (which just copy all the members, recall details) ==> shallow copy (pointer are same)
 
--> copy assignment = overload = operator for to perform as copy constructor  (a = b)
+-> copy assignment => overload = operator for to perform as copy constructor  (a = b)
 
 -> Always remember during AND if first is not TRUE second is not evaluated can be used in NULL case i.e. chance of null pointer exception in second
 
