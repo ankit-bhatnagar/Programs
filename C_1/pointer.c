@@ -43,6 +43,22 @@ f(void)
 int
 main(int ac, char **av)
 {
+    int arr[] = {1, 4, 6, 8};
+    int * a;
     f();
+    /* some more */
+    // Take care of before ++ and after ++
+    a = arr;
+    printf("value = %d\n", *a++);
+    a = arr;
+    printf("value = %d\n", *++a);
+    a = arr;
+    printf("value = %d\n", *(a++));
+    a = arr;
+    printf("value = %d\n", *(++a));
+    a = arr;
+    printf("value = %d\n", (*a)++);
+    a = arr;
+    printf("value = %d\n", (*a)++);
     return 0;
 }

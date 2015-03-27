@@ -1,0 +1,86 @@
+Mathworks
+=========
+
+String s = "Java";
+s.concat(" Rules!");
+System.out.println("s = " + s); 
+
+Correct Answer
+--------------
+
+s = Java
+
+(My Answer was - S = Java Rules!)
+
+============================================================================
+
+int add(int a, int b) { 
+ int c = a+b;
+ return c;
+} 
+double add(double a, double b) { 
+ double c = a+b;
+ return c;
+} 
+int main() { 
+  int output1 = add(2,3);
+  double output2 = add(2.5,3.1);
+  int output3 = add(2.5,3.6);
+
+  cout << output1 << endl;
+  cout << output2 << endl;
+  cout << output3 << endl;
+}
+
+Correct Answer - Compile successfully 
+
+5
+5.6
+6
+
+My Answer - Will give compilation error in case of output2 and output3
+(In Java may give error, but here it is perfectly fine, you did not consider overloading)
+(Fuck hate myself)
+
+==============================================================================
+
+#include <iostream>
+using namespace std;
+
+
+int main ()
+{
+ int arr[5] = {11,22,33,44,55};
+ 
+ for(int i = 0; i < 5; i++)
+  cout<<*(arr++)<<" ";
+ return 0;
+}
+
+Correct Answer - Will result in compilation error
+error: lvalue required as increment operand
+
+Because you cannot do pointer operations on static array (pointers)
+
+My Answer - 11 22 33 44 55
+
+=======================================================================
+
+int main(void)
+{
+    char *ptr = "Linux";
+    printf("\n [%c] \n",*ptr++);
+    printf("\n [%c] \n",*ptr);
+    return 0;
+}
+
+Correct Answer
+
+[L]
+
+[i]
+
+My Answer - compilation error, dude constant string or array are those like char arr[] = "Linux". The one with ptr will work
+
+=======================================================================
+

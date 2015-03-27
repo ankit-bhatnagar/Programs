@@ -1,0 +1,52 @@
+String Builder - String Buffer
+
+HashMap - HashTable
+
+Multithreading -> Runnable Synchronized
+
+Implement Stack using Queue
+
+Reverse String sentence wise
+
+Bit Masking Code
+
+Binary Tree Level Order Traversal
+
+Linked List, Merge Linked List, Remove Duplicates
+
+Abstract vs Interfaces
+
+Linked List Addition
+
+Tower of Hanoi
+
+Class A, B, C Calculate Area OOPS
+
+String Matching -> KMP
+
+Reverse a Linked List
+
+Least Recently Used Cache
+
+Implement File System
+
+Sliding Window Question
+
+Find Max 10 out of 1000
+
+Develop Power Function
+
+Connect Sibling
+
+CTCI -> Memory and Scalability
+
+Median Question
+
+Array
+
+Trees
+
+Priority Queue
+
+Stocks Question -> Geeks for Geeks
+

@@ -1,0 +1,119 @@
+Mathworks
+=========
+
+void func() {
+        static int x = 0; 
+        printf("%d\n", x); 
+        x = x + 1;
+}
+ 
+int main(int argc, char *argv[]) {
+        func(); 
+        func(); 
+        func(); 
+        return 0;
+}
+
+OUTPUT
+------
+
+0
+1
+2
+
+[Reason - may be due to static declared]
+
+-------------------------------------------------------
+
+
+String s1 = new String("abc");
+String s2 = new String("abc");
+if(s1.equals(s2))
+	System.out.println("s1.equals(s2) is TRUE");
+else
+    System.out.println("s1.equals(s2) is FALSE");
+if(s1==s2)
+    System.out.println("s1==s2 is TRUE");
+else
+    System.out.println("s1==s2 is FALSE");
+
+
+OUTPUT
+------
+
+s1.equals(s2) is TRUE
+s1==s2 is FALSE
+
+-------------------------------------------------------
+
+#include <iostream>
+using namespace std;
+
+class A { 
+public: 
+   A() {
+       cout << "A" << endl;
+   }
+}; 
+class B: public A { 
+public: 
+   B() {
+       cout << "B" << endl;
+   }
+}; 
+int main() { 
+   B b;
+} 
+
+
+OUTPUT
+------
+
+A
+B
+
+-------------------------------------------------------
+
+int main ()
+{
+	const float pi = 3.14;
+	pi = 5.40;
+	printf(‘%f’,&pi);
+}
+
+OUTPUT
+------
+
+error: assignment of read-only variable 'pi'
+
+---------------------------------------------------------
+
+int main() {
+ 
+ char *a = (char*)malloc(12);
+ printf("size:%d\n", sizeof(a));
+ printf("size:%d\n", sizeof(*a));
+ return 0;
+}
+
+OUTPUT
+
+4
+
+1
+
+-----------------------------------------------------------
+
+int main(void)
+{
+	int i;
+	double x[10];
+	for (i=0;i<=10;i++){
+		x[i]=(double)i;
+	}
+}
+
+OUTPUT
+------
+
+Nothing but array out of bound will happen

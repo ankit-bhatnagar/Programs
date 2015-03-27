@@ -1,0 +1,7 @@
+http://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/
+
+To see git old files
+---------------------
+3 -> commits back
+
+git show HEAD~3:kern/pmap.c

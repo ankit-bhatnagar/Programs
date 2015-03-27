@@ -1,3 +1,4 @@
+================
 TAKE CARE POINTS
 ================
 
@@ -7,67 +8,7 @@ TAKE CARE POINTS
 
 3- always mistakes in initialization, segmentation fault when run for first time -> may be not initialized, too many compilation errors
 
-4- 
+4- When allocate memory for string also allocate for null terminating character otherwise you will get wierd errors like heap issues. (BC how could you not think of it) [[ In general take care of string length ]]
 
-====================================================================================================================================================================
+==================================================================================================================================
 
-RULE TO REMEMBER
-================
-
-Static C:
---------
-
-- static global variables -> not accessible outside of source file
-- static functions -> not accessible outside source file
-- static local variabes -> like global variables (global scope) with local visibility
-
-Static in C++
---------------
-
-- static class variables -> are class variables, 
-- Classes can also have static member functions.
-
-Important in C++
-----------------
-
-Default constructor	       C::C();
-Destructor	               C::~C();
-Copy constructor	       C::C (const C&);
-Copy assignment	           C& operator= (const C&);
-Move constructor	       C::C (C&&);
-Move assignment	           C& operator= (C&&);
-
-
--> Default copy constructor is present in C++ (which just copy all the members, recall details) ==> shallow copy (pointer are same)
-
--> copy assignment => overload = operator for to perform as copy constructor  (a = b)
-
--> Always remember during AND if first is not TRUE second is not evaluated can be used in NULL case i.e. chance of null pointer exception in second
-
-Polymorhism in C++
-------------------
-
-Virtual functions:-> it help in polymorhism e.g. we can call the instance class function using pointer to base class
-
-  Polygon * ppoly1 = &rect;
-  Polygon * ppoly2 = &trgl;
-  Polygon * ppoly3 = &poly;
-  cout << ppoly1->area() << '\n';
-  cout << ppoly2->area() << '\n';
-  cout << ppoly3->area() << '\n';
-
-If not virtual only base class function called. A class that declares or inherits a virtual function is called a polymorphic class.
-
-Abstract Base Class
--------------------
-virtual member functions without definition (known as pure virtual functions)
-
-Notice that area has no definition; this has been replaced by =0, which makes it a pure virtual function. Classes that contain at least one pure virtual function are known as abstract base classes.
-
-Abstract base classes cannot be used to instantiate objects. Therefore, this last abstract base class version of Polygon could not be used to declare objects like:
-
-Polygon mypolygon;
-
-But OK
-
-Polygon * ppoly1;
